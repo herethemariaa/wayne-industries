@@ -1,0 +1,1 @@
+# CRUD dos recursos (arsenal, veículos, etc)
