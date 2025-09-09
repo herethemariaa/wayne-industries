@@ -1,0 +1,101 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0F0E0E; /* fundo escuro */
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: white;
+  flex-direction: column;
+}
+
+/* Título fora do container */
+.titulo {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 1000;
+  color: white; /* azul neon */
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #FFC612; /* glow sutil */
+}
+
+/* Container do login */
+.container {
+  background-color: #161615; /* cinza escuro */
+  padding: 40px 30px;
+  border-radius: 15px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+/* Logo centralizada */
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 120px; /* ajustado para ficar proporcional */
+  height: auto;
+}
+
+/* Inputs ajustados */
+.container input {
+  width: 90%;
+  max-width: 350px;
+  padding: 12px 15px;
+  margin: 12px auto;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: #222; /* fundo escuro do input */
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.container input:focus {
+  border: 2px solid #1f6feb; /* destaque azul neon ao focar */
+}
+
+/* Placeholder */
+.container input::placeholder {
+  color: #C1C1C1;
+}
+
+/* Botão estilizado */
+button {
+  width: 90%;
+  max-width: 350px;
+  padding: 12px; /* diminui para ficar proporcional */
+  margin-top: 15px;
+  background-color: #FFC612; /* amarelo Wayne */
+  border: none;
+  border-radius: 10px;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+button:hover {
+  background-color: #E5B419; /* amarelo escuro */
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #FFC612;
+}
+
+/* Mensagem de erro */
+#message {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ff5555;
+}
+

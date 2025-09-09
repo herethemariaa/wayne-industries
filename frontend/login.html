@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
     <title>Login - Sistema Wayne</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .container { max-width: 400px; margin: 0 auto; }
-        input { display: block; width: 100%; padding: 8px; margin: 10px 0; }
-        button { padding: 10px 20px; background: #007bff; color: white; border: none; }
-    </style>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
+    <h2 class="titulo">WAYNE INDUSTRIES</h2>
+
     <div class="container">
-        <h2>Login - Sistema Wayne</h2>
-        <input type="text" id="username" placeholder="Usuário" value="admin">
-        <input type="password" id="password" placeholder="Senha" value="admin123">
-        <button onclick="login()">Entrar</button>
+        <img src="css/ass/logo.png" alt="Logo Wayne" class="logo">
+
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        
         <p id="message"></p>
+        <button onclick="login()">Entrar</button>
     </div>
 
     <script>
