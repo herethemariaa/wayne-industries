@@ -15,7 +15,9 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(resources_bp, url_prefix='/api')
 
 # Inicializar o banco de dados
-init_db()
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    with app.app_context():
+        init_db()
+    print("Banco inicializado com sucesso!")
+    app.run(debug=True)

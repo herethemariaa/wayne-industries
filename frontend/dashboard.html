@@ -6,13 +6,75 @@
     <title>Dashboard | Wayne Industries</title>
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
-    
     <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <img src="css/ass/logo.png" alt="">
-    <button>GERENCIAR ARSENAL</button>
-    <button>PERFIL DO USUARIO</button>
+    <img src="css/ass/logo.png" alt="Logo Wayne">
+
+    <h2 id="welcome"></h2>
+
+    <nav>
+        <button id="arsenal-btn">GERENCIAR ARSENAL</button>
+        <button id="profile-btn">PERFIL DO USUÁRIO</button>
+        <button id="register-btn" style="display:none;">CADASTRAR USUÁRIO</button>
+        <button id="logout-btn">LOGOUT</button>
+    </nav>
+
+    <script>
+        // Verifica autenticação e exibe o botão de cadastro apenas para admins
+        async function checkAuth() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/auth/check-auth', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (!data.authenticated) {
+                    window.location.href = 'login.html';
+                } else {
+                    document.getElementById('welcome').textContent = `Bem-vindo, ${data.user.username}`;
+
+                    // Exibe botão de cadastro apenas para admins
+                    if (data.user.role === 'admin') {
+                        document.getElementById('register-btn').style.display = 'inline-block';
+                    }
+                }
+            } catch (error) {
+                console.error('Erro ao verificar autenticação:', error);
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await fetch('http://127.0.0.1:5000/auth/logout', {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                window.location.href = 'login.html';
+            } catch (err) {
+                console.error('Erro ao deslogar:', err);
+            }
+        });
+
+        // Redirecionamento para cadastro de usuário
+        document.getElementById('register-btn').addEventListener('click', () => {
+            window.location.href = 'register.html';
+        });
+
+        // Redirecionamento para outras páginas
+        document.getElementById('arsenal-btn').addEventListener('click', () => {
+            window.location.href = 'arsenal.html'; // ou a página correspondente
+        });
+
+        document.getElementById('profile-btn').addEventListener('click', () => {
+            window.location.href = 'profile.html'; // ou a página correspondente
+        });
+
+        checkAuth();
+    </script>
 </body>
 </html>

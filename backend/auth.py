@@ -57,4 +57,34 @@ def check_auth():
                 'role': session['role']
             }
         })
-    return
+    return jsonify({'authenticated': False})
+
+@auth_bp.route('/register', methods=['POST'])
+@login_required
+def register():
+    # só admin pode cadastrar novos usuários
+    if session.get('role') != 'admin':
+        return jsonify({'error': 'Acesso negado'}), 403
+
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    role = data.get('role')  # 'manager' ou 'contributor'
+
+    if not username or not password or not role:
+        return jsonify({'error': 'Preencha todos os campos'}), 400
+
+    conn = get_db()
+    # verifica se usuário já existe
+    existing_user = conn.execute('SELECT * FROM users WHERE username = ?', (username,)).fetchone()
+    if existing_user:
+        conn.close()
+        return jsonify({'error': 'Usuário já existe'}), 400
+
+    # insere usuário
+    conn.execute('INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+                 (username, password, role))
+    conn.commit()
+    conn.close()
+
+    return jsonify({'message': 'Usuário cadastrado com sucesso'})

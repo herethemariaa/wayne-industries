@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário - Wayne Industries</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <h2 class="titulo">Cadastrar Novo Usuário</h2>
+
+    <div class="container">
+        <input type="text" id="username" placeholder="Nome de usuário">
+        <input type="password" id="password" placeholder="Senha">
+        
+        <label for="role">Cargo:</label>
+        <select id="role">
+            <option value="manager">Gestor</option>
+            <option value="contributor">Contribuidor</option>
+        </select>
+
+        <p id="message"></p>
+        <button onclick="register()">Cadastrar</button>
+    </div>
+
+    <script>
+        async function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, role }),
+                    credentials: "include"
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('message').textContent = data.message;
+                } else {
+                    document.getElementById('message').textContent = data.error;
+                }
+            } catch (err) {
+                console.error(err);
+                document.getElementById('message').textContent = 'Erro ao cadastrar usuário';
+            }
+        }
+    </script>
+</body>
+</html>
