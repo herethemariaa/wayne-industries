@@ -1,0 +1,108 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0F0E0E; /* fundo escuro */
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centraliza verticalmente */
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  text-align: center; /* centraliza texto */
+}
+
+/* Logo */
+body img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px #FFC612); /* glow amarelo */
+}
+
+/* Mensagem de boas-vindas */
+#welcome {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #FFC612;
+  text-shadow: 0 0 15px #FFC612;
+  margin-bottom: 30px;
+}
+
+/* Navegação principal */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  align-items: center;
+}
+
+/* Botões padrão */
+nav button {
+  width: 90%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+/* Botões amarelos (Gerenciar Arsenal, Perfil, Cadastrar) */
+#arsenal-btn,
+#profile-btn,
+#register-btn {
+  background-color: #FFC612; /* amarelo Wayne */
+  color: #000;
+}
+
+#arsenal-btn:hover,
+#profile-btn:hover,
+#register-btn:hover {
+  background-color: #E5B419;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #FFC612;
+}
+
+/* Botão Logout vermelho */
+#logout-btn {
+  background-color: #FF4C4C; /* vermelho */
+  color: #fff;
+}
+
+#logout-btn:hover {
+  background-color: #E03B3B;
+  transform: scale(1.03);
+  box-shadow: 0 0 15px #FF4C4C;
+}
+
+/* Botão oculto inicialmente */
+#register-btn {
+  display: none; /* será exibido via JS para admin */
+}
+
+/* Responsividade */
+@media screen and (max-width: 480px) {
+  body img {
+    width: 120px;
+  }
+
+  #welcome {
+    font-size: 1.4rem;
+  }
+
+  nav button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

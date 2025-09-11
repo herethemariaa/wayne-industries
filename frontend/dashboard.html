@@ -7,7 +7,7 @@
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
     <!-- CSS externo -->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
     <img src="css/ass/logo.png" alt="Logo Wayne">
@@ -16,8 +16,7 @@
 
     <nav>
         <button id="arsenal-btn">GERENCIAR ARSENAL</button>
-        <button id="profile-btn">PERFIL DO USUÁRIO</button>
-        <button id="register-btn" style="display:none;">CADASTRAR USUÁRIO</button>
+        <button id="register-btn">CADASTRAR USUÁRIO</button>
         <button id="logout-btn">LOGOUT</button>
     </nav>
 
@@ -69,11 +68,6 @@
         document.getElementById('arsenal-btn').addEventListener('click', () => {
             window.location.href = 'arsenal.html'; // ou a página correspondente
         });
-
-        document.getElementById('profile-btn').addEventListener('click', () => {
-            window.location.href = 'profile.html'; // ou a página correspondente
-        });
-
         checkAuth();
     </script>
 </body>

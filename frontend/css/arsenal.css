@@ -68,7 +68,7 @@ body {
 }
 .nav-btn.active {
   background: var(--yellow);
-  color: #000;
+  color: #ffffff;
 }
 
 /* ===== HEADER ===== */
@@ -222,4 +222,106 @@ body {
   .btn-create {
     width: 100%;
   }
+}
+/* Modal */
+/* ===== MODAL BASE ===== */
+/* ===== MODAL BASE ===== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px); /* discreto */
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* ===== CONTEÚDO ===== */
+.modal-content {
+  background: #1b1b1b;
+  padding: 2rem;
+  border-radius: 14px;
+  width: 360px;
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6); /* sombra clean */
+  animation: popIn 0.25s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  color: var(--yellow);
+  text-align: center;
+}
+
+/* ===== INPUTS ===== */
+.modal-content input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: var(--blue);
+  outline: none;
+}
+
+/* ===== AÇÕES ===== */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+/* Botão salvar */
+#save-btn {
+  background-color: var(--blue);
+  color: #fff;
+}
+#save-btn:hover {
+  background-color: var(--blue-dark);
+  transform: translateY(-2px);
+}
+
+/* Botão cancelar */
+#cancel-btn {
+  background-color: var(--red);
+  color: #fff;
+}
+#cancel-btn:hover {
+  background-color: #7a1717;
+  transform: translateY(-2px);
 }
