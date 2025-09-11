@@ -46,3 +46,20 @@ ESSE PROJETO FOI CRIADO SOMENTE PARA FINS ACADÊMICOS, REGISTRANDO A MINHA EVOLU
 - CORS: O backend permite requisições do frontend via Flask-CORS.
 
 - Modal de cadastro/edição: Utilizado para criar e atualizar registros de forma dinâmica.
+
+## 🚀 Instalação e Execução
+
+Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/wayne-industries.git
+cd wayn
+2. Crie um ambiente virtual
+3. Ative as dependências
+4. Execute o servidor (python server.py)
+
+⚡ Observações
+
+Controle de acesso: Apenas usuários com a role admin podem cadastrar novos usuários ou editar registros sensíveis.
+Banco SQLite: Certifique-se de que o arquivo de banco de dados não esteja aberto em outro programa para evitar erros de "database is locked".
+CORS: O backend permite requisições do frontend via Flask-CORS.
+Modal de cadastro/edição: Utilizado para criar e atualizar registros de forma dinâmica
